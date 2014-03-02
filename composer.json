@@ -1,6 +1,6 @@
 {
     "name": "snapshotpl/zf-snap-hip-chat",
-    "description": "Hip Chat Module for Zend Framework 2",
+    "description": "HipChat module (api and logger) for Zend Framework 2",
     "keywords": [
         "hipchat",
         "zf2",
