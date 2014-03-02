@@ -31,4 +31,51 @@ return array(
             'ZfSnapHipChat\Log\Writer\HipChat' => 'ZfSnapHipChat\Log\Writer\HipChatFactory',
         ),
     ),
+    'controllers' => array(
+        'factories' => array(
+            'ZfSnapHipChat\Controller\Console' => 'ZfSnapHipChat\Controller\ConsoleControllerFactory',
+        ),
+    ),
+    'console' => array(
+        'router' => array(
+            'routes' => array(
+                'hipchat-message-send' => array(
+                    'options' => array(
+                        'route' => ZfSnapHipChat\Module::CONSOLE_MESSAGE_SEND,
+                        'defaults' => array(
+                            'controller' => 'ZfSnapHipChat\Controller\Console',
+                            'action' => 'message',
+                        ),
+                    ),
+                ),
+                'hipchat-room-list' => array(
+                    'options' => array(
+                        'route' => ZfSnapHipChat\Module::CONSOLE_ROOM_LIST,
+                        'defaults' => array(
+                            'controller' => 'ZfSnapHipChat\Controller\Console',
+                            'action' => 'room-list',
+                        ),
+                    ),
+                ),
+                'hipchat-room-history' => array(
+                    'options' => array(
+                        'route' => ZfSnapHipChat\Module::CONSOLE_ROOM_HISTORY,
+                        'defaults' => array(
+                            'controller' => 'ZfSnapHipChat\Controller\Console',
+                            'action' => 'room-history',
+                        ),
+                    ),
+                ),
+                'hipchat-room-set-topic' => array(
+                    'options' => array(
+                        'route' => ZfSnapHipChat\Module::CONSOLE_ROOM_SET_TOPIC,
+                        'defaults' => array(
+                            'controller' => 'ZfSnapHipChat\Controller\Console',
+                            'action' => 'room-set-topic',
+                        ),
+                    ),
+                ),
+            ),
+        ),
+    ),
 );
