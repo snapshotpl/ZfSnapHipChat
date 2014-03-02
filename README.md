@@ -44,13 +44,13 @@ and add module `ZfSnapHipChat` to `application.config.php`.
 Use HipChat as logger
 ---------------------
 
-To use HipChat as logger, you need to set room ID (or IDs) in config:
+To use HipChat as logger, you need to set room ID (IDs) or name (names) in config:
 
 ```php
 return array(
   'zf_snap_hip_chat' => array(
     'logger' => array(
-      'room_id' => array(100001, 100002),
+      'room_id' => array(100001, 'log room'),
     ),
   ),
 );
