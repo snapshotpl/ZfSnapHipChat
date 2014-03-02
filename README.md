@@ -95,7 +95,18 @@ return array(
 );
 ```
 
-TODO
-----
+Console usage
+-------------
 
-* Console usage
+You can manipulate HipChat API from application console. To get list of commands write in console:
+```
+php public/index.php
+```
+
+```
+HipChat API
+  index.php hipchat message send <message> [--room=] [--from=] [--notify] [--color=(yellow|red|gray|green|purple|random)] [--format=(html|text)]    Sends message
+  index.php hipchat room list    Lists rooms
+  index.php hipchat room history <room> [--date=]    Room's history                           
+  index.php hipchat room set topic <room> <topic> [--from=]    Sets room topic
+```
