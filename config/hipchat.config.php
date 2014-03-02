@@ -18,11 +18,16 @@ return array(
     ),
     'service_manager' => array(
         'aliases' => array(
-            'hipchat' => 'HipChat\HipChat',
+            'hipchat'            => 'HipChat\HipChat',
+            'hipchat_logger'     => 'ZfSnapHipChat\Log\Logger',
             'hipchat_log_writer' => 'ZfSnapHipChat\Log\Writer\HipChat',
         ),
+        'invokables' => array(
+            'Zend\Log\Logger' => 'Zend\Log\Logger',
+        ),
         'factories' => array(
-            'HipChat\HipChat' => 'ZfSnapHipChat\Factory',
+            'HipChat\HipChat'                  => 'ZfSnapHipChat\HipChatFactory',
+            'ZfSnapHipChat\Log\Logger'         => 'ZfSnapHipChat\Log\LoggerFactory',
             'ZfSnapHipChat\Log\Writer\HipChat' => 'ZfSnapHipChat\Log\Writer\HipChatFactory',
         ),
     ),

@@ -3,7 +3,7 @@
 namespace ZfSnapHipChat;
 
 use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\ServiceManager\ServiceLocatorInterface as ServiceManager;
 use HipChat\HipChat;
 use Exception;
 
@@ -12,15 +12,15 @@ use Exception;
  *
  * @author Witold Wasiczko <witold@wasiczko.pl>
  */
-class Factory implements FactoryInterface
+class HipChatFactory implements FactoryInterface
 {
     /**
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param ServiceManager $sm
      * @return HipChat
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function createService(ServiceManager $sm)
     {
-        $config = $serviceLocator->get('config');
+        $config = $sm->get('config');
 
         $hipChatConfig = $config['zf_snap_hip_chat']['api'];
         $auth_token = $hipChatConfig['auth_token'];

@@ -3,7 +3,7 @@
 namespace ZfSnapHipChat\Log\Writer;
 
 use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\ServiceManager\ServiceLocatorInterface as ServiceManager;
 use Exception;
 
 /**
@@ -14,13 +14,13 @@ use Exception;
 class HipChatFactory implements FactoryInterface
 {
     /**
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param ServiceManager $sm
      * @return HipChat
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function createService(ServiceManager $sm)
     {
-        $hipchat = $serviceLocator->get('hipchat');
-        $config = $serviceLocator->get('config');
+        $hipchat = $sm->get('hipchat');
+        $config = $sm->get('config');
         $loggerConfig = $config['zf_snap_hip_chat']['logger'];
         $room_id = $loggerConfig['room_id'];
         $from = $loggerConfig['from'];
