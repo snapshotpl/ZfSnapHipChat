@@ -19,7 +19,7 @@ return array(
     'service_manager' => array(
         'aliases' => array(
             'hipchat' => 'HipChat\HipChat',
-            'hipchat_logger' => 'ZfSnapHipChat\Log\Writer\HipChat',
+            'hipchat_log_writer' => 'ZfSnapHipChat\Log\Writer\HipChat',
         ),
         'factories' => array(
             'HipChat\HipChat' => 'ZfSnapHipChat\Factory',
