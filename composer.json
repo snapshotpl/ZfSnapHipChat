@@ -1,0 +1,30 @@
+{
+    "name": "snapshotpl/zf-snap-hip-chat",
+    "description": "Hip Chat Module for Zend Framework 2",
+    "keywords": [
+        "hipchat",
+        "zf2",
+        "log",
+        "logger"
+    ],
+    "authors": [
+        {
+            "name": "Witold Wasiczko",
+            "email": "witold@wasiczko.pl",
+            "homepage": "http://www.psd2html.pl/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*",
+        "hipchat/hipchat-php": "1.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "ZfSnapHipChat": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
