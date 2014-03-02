@@ -94,3 +94,8 @@ return array(
   ),
 );
 ```
+
+TODO
+----
+
+* Console usage
