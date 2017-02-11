@@ -150,7 +150,7 @@ class ConsoleController extends AbstractActionController
             $rooms = $this->hipchat->get_rooms();
 
             foreach ($rooms as $room) {
-                $this->console->writeLine($room->room_id .': '. $room->name);
+                $this->console->writeLine($room->roomIds .': '. $room->name);
             }
         } catch (Exception $e) {
             $this->console->writeLine(sprintf('Rooms list did not fetch: "%s"', $e->getMessage()), Color::RED);

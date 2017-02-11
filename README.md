@@ -10,13 +10,13 @@ The simplest usage
 Add auth token (you can [create it here](https://inweb.hipchat.com/admin/api) - remember to set type `admin`) to your config:
 
 ```php
-return array(
-  'zf_snap_hip_chat' => array(
-    'api' => array(
-      'auth_token' => 'yourauthtoken',
-    ),
-  ),
-);
+return [
+    'zf_snap_hip_chat' => [
+        'api' => [
+            'auth_token' => 'yourauthtoken',
+        ],
+    ],
+];
 ```
 
 And then get HipChat API object from Service Manager:
@@ -30,13 +30,9 @@ Module uses [official HipChat library for PHP](https://github.com/hipchat/hipcha
 How to install?
 ---------------
 
-Via [composer.json](https://getcomposer.org/)
-```json
-{
-  "require": {
-    "snapshotpl/zf-snap-hip-chat": "1.*"
-  }
-}
+Via [composer](https://getcomposer.org/)
+```
+composer require snapshotpl/zf-snap-hip-chat
 ```
 
 and add module `ZfSnapHipChat` to `application.config.php`.
@@ -47,13 +43,13 @@ Use HipChat as logger
 To use HipChat as logger, you need to set room ID (IDs) or name (names) in config:
 
 ```php
-return array(
-  'zf_snap_hip_chat' => array(
-    'logger' => array(
-      'room_id' => array(100001, 'log room'),
-    ),
-  ),
-);
+return [
+    'zf_snap_hip_chat' => [
+        'logger' => [
+            'room_id' => array(100001, 'log room'),
+        ],
+    ],
+];
 ```
 
 Now you have access to log writer from service manager:
@@ -78,21 +74,21 @@ Options
 You can customize logger using config:
 
 ```php
-return array(
-  'zf_snap_hip_chat' => array(
-    'api' => array(
+return [
+  'zf_snap_hip_chat' => [
+    'api' => [
       'auth_token' => null, // Required auth token
       'api_target' => HipChat::DEFAULT_TARGET, // Url address to HipChat API
       'api_version' => HipChat::VERSION_1, // Api version
-    ),
-    'logger' => array(
+    ],
+    'logger' => [
       'room_id' => null, // string, int or array with IDs, required for logger
       'from' => 'ZfSnapHipChat', // Author name for log messages in your rooms
       'notify' => false, // Enables sounds notify in HipChat
       'format' => HipChat::FORMAT_HTML, // Message format
-    ),
-  ),
-);
+    ],
+  ],
+];
 ```
 
 Console usage
@@ -107,6 +103,6 @@ php public/index.php
 HipChat API
   index.php hipchat message send <message> [--room=] [--from=] [--notify] [--color=(yellow|red|gray|green|purple|random)] [--format=(html|text)]    Sends message
   index.php hipchat room list    Lists rooms
-  index.php hipchat room history <room> [--date=]    Room's history                           
+  index.php hipchat room history <room> [--date=]    Room's history
   index.php hipchat room set topic <room> <topic> [--from=]    Sets room topic
 ```

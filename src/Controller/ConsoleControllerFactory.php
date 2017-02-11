@@ -2,22 +2,21 @@
 
 namespace ZfSnapHipChat\Controller;
 
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Interop\Container\ContainerInterface;
 
 /**
  * Factory for console controller
  *
  * @author Witold Wasiczko <witold@wasiczko.pl>
  */
-class ConsoleControllerFactory implements FactoryInterface
+final class ConsoleControllerFactory
 {
-    public function createService(ServiceLocatorInterface $sm)
+    public function __invoke(ContainerInterface $container)
     {
-        $sm = $sm->getServiceLocator();
-        $console = $sm->get('Console');
-        $hipchat = $sm->get('HipChat');
-        $config = $sm->get('Config');
+        $container = $container->getServiceLocator();
+        $console = $container->get('Console');
+        $hipchat = $container->get('HipChat');
+        $config = $container->get('Config');
         $hipchatConfig = $config['zf_snap_hip_chat']['logger'];
 
         $controller = new ConsoleController($console, $hipchat);
